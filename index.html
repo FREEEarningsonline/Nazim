@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNAPDEALZ - Bold Deal Store</title>
+    <meta name="description" content="A high-octane, mobile-first e-commerce deal store featuring lightning deals, smart cart, and live tracking." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom Deal Theme CSS -->
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="spinner-deal"></div>
+      <div class="mt-3 fw-bold text-dark font-monospace tracking-wide">SNAPDEALZ</div>
+      <span class="small text-muted">Unlocking exclusive drops...</span>
+    </div>
+
+    <!-- Top Announcement Ticker -->
+    <div class="top-ticker text-center">
+      <div class="container d-flex flex-wrap justify-content-center align-items-center gap-2">
+        <span class="badge bg-warning text-dark fw-bold">⚡ FLASH SALE</span>
+        <span>EXTRA 20% OFF WITH CODE <strong>BUNDLE20</strong> | FREE SHIPPING OVER $50</span>
+        <a href="#" class="text-warning text-decoration-none fw-bold ms-md-3 small d-inline-flex align-items-center" data-bs-toggle="modal" data-bs-target="#trackOrderModal">
+          <i class="bi bi-geo-alt-fill me-1"></i>Track Order
+        </a>
+      </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg snap-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="?view=home">
+          <i class="bi bi-lightning-charge-fill text-warning"></i>
+          <span>SNAP</span><span class="logo-badge">DEALZ</span>
+        </a>
+
+        <div class="d-flex align-items-center gap-2 order-lg-3 ms-auto ms-lg-0">
+          <button type="button" class="nav-action-btn" data-bs-toggle="modal" data-bs-target="#globalSearchModal" aria-label="Search deals">
+            <i class="bi bi-search"></i>
+          </button>
+          <a href="?view=shop" class="nav-action-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="nav-badge-count wishlist-count-badge" style="display: none;">0</span>
+          </a>
+          <a href="?view=cart" class="nav-action-btn" title="Shopping Cart">
+            <i class="bi bi-cart3"></i>
+            <span class="nav-badge-count cart-count-badge" style="display: none;">0</span>
+          </a>
+          <div id="userNavContainer" class="ms-1">
+            <a href="?view=login" class="btn btn-deal-outline py-1 px-3" style="font-size: 0.85rem;">Log In</a>
+          </div>
+          <button class="navbar-toggler border-0 shadow-none px-2" type="button" data-bs-toggle="collapse" data-bs-target="#snapNavbarNav">
+            <i class="bi bi-list fs-1 text-dark"></i>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse order-lg-2" id="snapNavbarNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="?view=home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="?view=shop">Shop All</a></li>
+            <li class="nav-item"><a class="nav-link" href="?view=shop&category=mens-shoes">Men's Shoes</a></li>
+            <li class="nav-item"><a class="nav-link" href="?view=shop&category=ladies-bags">Ladies Bags</a></li>
+            <li class="nav-item"><a class="nav-link" href="?view=shop&category=health-beauty">Beauty</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================== -->
+    <!-- VIEW: HOME PAGE -->
+    <!-- ============================================== -->
+    <div id="view-home" class="app-view">
+      <header class="hero-wrapper">
+        <div class="container">
+          <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row align-items-center hero-slide">
+                  <div class="col-lg-6 mb-4 mb-lg-0">
+                    <span class="hero-tag"><i class="bi bi-fire text-warning"></i> DEAL OF THE DAY</span>
+                    <h1 class="hero-title">STEP INTO POWER & SPEED</h1>
+                    <p class="hero-desc">Apex Pulse Air Running Shoes with responsive cloud cushioning. Upgrade your athletic sprint with massive 50% discount savings.</p>
+                    <div class="d-flex flex-wrap align-items-center gap-3">
+                      <a href="?view=product&id=1" class="btn btn-deal btn-lg"><i class="bi bi-bag-check-fill"></i> Shop Now • $64.99</a>
+                      <a href="?view=shop&category=mens-shoes" class="btn btn-deal-outline btn-lg">Explore Shoes</a>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 text-center">
+                    <div class="hero-img-box">
+                      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop&q=80" alt="Shoes" class="hero-floating-img img-fluid">
+                      <div class="hero-deal-sticker">
+                        <span style="font-size: 0.7rem;">SAVE</span><span style="font-size: 1.35rem;">50%</span><span style="font-size: 0.65rem;">TODAY</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="curved-edge-bottom">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" class="shape-fill"></path>
+          </svg>
+        </div>
+      </header>
+
+      <section class="py-5" id="categoriesSection">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-end mb-3">
+            <div>
+              <span class="text-uppercase fw-bold text-warning small tracking-wider">BROWSE BY NICHE</span>
+              <h2 class="deal-heading fs-3 mb-0">Shop By Categories</h2>
+            </div>
+            <a href="?view=shop" class="fw-bold small text-dark d-flex align-items-center gap-1">View All <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="category-scroll-container" id="categoryScrollContainer"></div>
+        </div>
+      </section>
+
+      <section class="py-5 bg-white">
+        <div class="container">
+          <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+            <div>
+              <span class="badge bg-warning text-dark fw-bold mb-2">HOT DROPS</span>
+              <h2 class="deal-heading fs-2 mb-1">Trending Deals & Steals</h2>
+            </div>
+            <a href="?view=shop" class="btn btn-deal-outline mt-3 mt-md-0">See All Deals <i class="bi bi-arrow-up-right"></i></a>
+          </div>
+          <div class="row g-3 g-md-4" id="trendingProductsGrid"></div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="offer-banner-section fade-in-up">
+          <div class="row align-items-center">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+              <span class="badge bg-dark text-warning fw-bold px-3 py-2 mb-3 rounded-pill">LIMITED TIME OFFER</span>
+              <h2 class="deal-heading display-5 mb-3">BUNDLE & SAVE AN EXTRA 20%</h2>
+              <p class="fs-5 text-dark mb-4">Mix and match any shoes, bags, or gadgets. Apply the VIP promo code during checkout.</p>
+              <div class="d-flex flex-wrap align-items-center gap-3">
+                <div class="coupon-code-pill" id="copyCouponBtn"><span>BUNDLE20</span><i class="bi bi-copy text-warning"></i></div>
+                <a href="?view=shop" class="btn btn-deal-dark btn-lg">Start Bundling</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5" id="whyChooseUs">
+        <div class="container">
+          <div class="text-center max-w-xl mx-auto mb-5">
+            <span class="text-uppercase fw-bold text-warning small tracking-wider">THE SNAPDEALZ DIFFERENCE</span>
+            <h2 class="deal-heading fs-2">Why Deal Hunters Love Us</h2>
+          </div>
+          <div class="row g-4">
+            <div class="col-6 col-lg-3"><div class="feature-box fade-in-up"><div class="feature-icon-wrap"><i class="bi bi-truck"></i></div><h5 class="fw-bold mb-2">Free Fast Shipping</h5></div></div>
+            <div class="col-6 col-lg-3"><div class="feature-box fade-in-up"><div class="feature-icon-wrap"><i class="bi bi-shield-lock"></i></div><h5 class="fw-bold mb-2">Secure Payment</h5></div></div>
+            <div class="col-6 col-lg-3"><div class="feature-box fade-in-up"><div class="feature-icon-wrap"><i class="bi bi-arrow-repeat"></i></div><h5 class="fw-bold mb-2">30-Day Returns</h5></div></div>
+            <div class="col-6 col-lg-3"><div class="feature-box fade-in-up"><div class="feature-icon-wrap"><i class="bi bi-headset"></i></div><h5 class="fw-bold mb-2">24/7 VIP Support</h5></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container my-5" id="newsletter">
+        <div class="newsletter-wrapper fade-in-up">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+              <span class="badge bg-warning text-dark fw-bold mb-2 px-3 py-1 rounded-pill">VIP DEALS CLUB</span>
+              <h2 class="deal-heading fs-2 mb-2">Get Secret Price Drops & 15% Off</h2>
+            </div>
+            <div class="col-lg-6">
+              <form class="newsletter-form">
+                <div class="newsletter-input-group">
+                  <input type="email" placeholder="Enter your email address..." required>
+                  <button type="submit" class="btn btn-deal px-4 py-2">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: SHOP PAGE -->
+    <!-- ============================================== -->
+    <div id="view-shop" class="app-view" style="display:none;">
+      <header class="py-4 bg-white border-bottom mb-4">
+        <div class="container">
+          <h1 class="deal-heading fs-2 mb-1">ALL STORE DEALS</h1>
+          <p class="text-muted small mb-0">Browse through hand-verified deals, high-performance shoes, luxury handbags, and electronics.</p>
+        </div>
+      </header>
+      <main class="container pb-5">
+        <div class="row g-4">
+          <aside class="col-lg-3 d-none d-lg-block">
+            <div class="bg-white p-4 rounded-4 border shadow-sm sticky-top" style="top: 90px;">
+              <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                <h5 class="fw-bold mb-0"><i class="bi bi-funnel-fill text-warning me-1"></i> Filter Deals</h5>
+                <button type="button" class="btn btn-sm btn-link text-decoration-none text-danger p-0 fw-bold small" id="resetFiltersBtn">Reset</button>
+              </div>
+              <div class="mb-4">
+                <label class="form-label small fw-bold text-uppercase text-muted">Keyword Search</label>
+                <input type="text" id="shopSearchInput" class="form-control" placeholder="Search products...">
+              </div>
+              <div class="mb-4">
+                <label class="form-label small fw-bold text-uppercase text-muted">Categories</label>
+                <div id="categoryFiltersList"></div>
+              </div>
+              <div class="mb-4">
+                <label class="form-label small fw-bold text-uppercase text-muted mb-0">Max Price: <span id="priceRangeValue">$250</span></label>
+                <input type="range" class="form-range" id="priceRangeInput" min="20" max="250" step="5" value="250">
+              </div>
+            </div>
+          </aside>
+          <section class="col-lg-9">
+            <div class="bg-white p-3 rounded-4 border shadow-sm mb-4 d-flex justify-content-between align-items-center">
+              <span class="text-muted small fw-semibold" id="shopResultsCount">Loading products...</span>
+              <select id="shopSortSelect" class="form-select form-select-sm border-secondary-subtle w-auto rounded-pill fw-semibold">
+                <option value="featured">Featured Deals</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="discount">Biggest % Discount</option>
+              </select>
+            </div>
+            <div class="row g-3 g-md-4" id="shopProductsGrid"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: PRODUCT DETAILS PAGE -->
+    <!-- ============================================== -->
+    <div id="view-product" class="app-view" style="display:none;">
+      <main class="container py-4 py-lg-5" id="productDetailContent"></main>
+      <section class="py-5 bg-white border-top">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+              <span class="badge bg-warning text-dark fw-bold mb-1">YOU MAY ALSO LIKE</span>
+              <h3 class="deal-heading fs-3 mb-0">Related Deals</h3>
+            </div>
+            <a href="?view=shop" class="btn btn-deal-outline btn-sm">Explore All <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="row g-3 g-md-4" id="relatedProductsGrid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: CART PAGE -->
+    <!-- ============================================== -->
+    <div id="view-cart" class="app-view" style="display:none;">
+      <header class="py-4 bg-white border-bottom mb-4">
+        <div class="container">
+          <h1 class="deal-heading fs-2 mb-1">YOUR SHOPPING CART</h1>
+        </div>
+      </header>
+      <main class="container pb-5">
+        <div id="emptyCartState" class="bg-white rounded-4 shadow-sm border p-4 p-md-5 my-4" style="display: none;">
+          <div class="text-center py-3">
+            <h2 class="fw-bold text-dark mb-2">Your Cart is Currently Empty</h2>
+            <a href="?view=shop" class="btn btn-deal btn-lg px-4 py-2 mt-3"><i class="bi bi-lightning-charge-fill me-1"></i> Browse Deals</a>
+          </div>
+          <div class="pt-4 border-top mt-5">
+            <h5 class="fw-bold mb-4">Trending Deals You Might Love</h5>
+            <div class="row g-3 g-md-4" id="emptyCartSuggestions"></div>
+          </div>
+        </div>
+
+        <div class="row g-4" id="cartContentWrapper">
+          <div class="col-lg-8">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold mb-0">Cart Items</h5>
+              <button type="button" class="btn btn-sm btn-outline-danger border-0 fw-semibold" id="clearCartBtn"><i class="bi bi-trash"></i> Empty Cart</button>
+            </div>
+            <div id="cartItemsList"></div>
+          </div>
+          <div class="col-lg-4">
+            <div class="bg-white p-4 rounded-4 border shadow-sm sticky-top" style="top: 90px;">
+              <h5 class="fw-bold pb-2 border-bottom mb-3">Order Summary</h5>
+              <div class="d-flex justify-content-between mb-2 small"><span class="text-muted">Subtotal:</span><span class="fw-bold font-monospace" id="cartSubtotal">$0.00</span></div>
+              <div class="d-flex justify-content-between mb-2 small"><span class="text-muted">Discount:</span><span class="fw-bold font-monospace text-danger" id="cartDiscount">-$0.00</span></div>
+              <div class="d-flex justify-content-between mb-3 small"><span class="text-muted">Shipping:</span><span class="fw-bold font-monospace text-success" id="cartShipping">FREE</span></div>
+              <div id="promoStatusText" class="small mb-3"></div>
+              <div class="mb-4">
+                <div class="input-group">
+                  <input type="text" id="promoCodeInput" class="form-control text-uppercase" placeholder="e.g. BUNDLE20">
+                  <button class="btn btn-deal" type="button" id="applyPromoBtn">Apply</button>
+                </div>
+              </div>
+              <div class="border-top pt-3 mb-4 d-flex justify-content-between align-items-baseline">
+                <span class="fw-bold fs-5">Estimated Total:</span>
+                <span class="fs-3 fw-bold font-monospace text-dark" id="cartTotal">$0.00</span>
+              </div>
+              <button type="button" class="btn btn-deal w-100 py-3 mb-3 fs-6" id="proceedCheckoutBtn"><i class="bi bi-lock-fill"></i> Proceed to Checkout</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: LOGIN PAGE -->
+    <!-- ============================================== -->
+    <div id="view-login" class="app-view auth-page-wrapper" style="display:none;">
+      <div class="auth-card-split shadow-lg">
+        <div class="row g-0">
+          <div class="col-lg-5 auth-brand-side">
+            <h2 class="deal-heading display-6 mb-3">WELCOME BACK, DEAL HUNTER!</h2>
+            <p>Unlock members-only pricing, 1-click checkout, saved favorites, and private warehouse drops.</p>
+          </div>
+          <div class="col-lg-7 auth-form-side">
+            <h3 class="deal-heading fs-3 mb-1">SIGN IN TO YOUR ACCOUNT</h3>
+            <p class="text-muted small mb-4">Don't have an account yet? <a href="?view=signup" class="fw-bold text-dark text-decoration-underline">Create an account</a></p>
+            <div id="loginAlertBox" class="alert d-none mb-4"></div>
+            <form id="loginForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label small fw-bold text-uppercase">Email Address</label>
+                <input type="email" class="form-control" id="loginEmail" required value="demo.vip@snapdealz.com">
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <label class="form-label small fw-bold text-uppercase">Password</label>
+                  <a href="#" class="small text-muted text-decoration-underline" id="forgotPasswordLink">Forgot password?</a>
+                </div>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="loginPassword" required value="Password123!">
+                  <button class="btn btn-outline-secondary" type="button" id="togglePasswordBtn"><i class="bi bi-eye"></i></button>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-deal w-100 py-3 fw-bold mb-3">Sign In</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- VIEW: SIGNUP PAGE -->
+    <!-- ============================================== -->
+    <div id="view-signup" class="app-view auth-page-wrapper" style="display:none;">
+      <div class="auth-card-split shadow-lg">
+        <div class="row g-0">
+          <div class="col-lg-5 auth-brand-side">
+            <h2 class="deal-heading display-6 mb-3">JOIN 85,000+ SMART SAVERS</h2>
+            <p>Create your account in under 30 seconds. Enjoy guaranteed lowest online prices and instant tracking alerts.</p>
+          </div>
+          <div class="col-lg-7 auth-form-side">
+            <h3 class="deal-heading fs-3 mb-1">CREATE YOUR VIP ACCOUNT</h3>
+            <p class="text-muted small mb-4">Already a member? <a href="?view=login" class="fw-bold text-dark text-decoration-underline">Sign in here</a></p>
+            <div id="signupAlertBox" class="alert d-none mb-4"></div>
+            <form id="signupForm" novalidate>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-uppercase">Full Name</label>
+                  <input type="text" class="form-control" id="signupName" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-uppercase">Phone Number</label>
+                  <input type="tel" class="form-control" id="signupPhone" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label small fw-bold text-uppercase">Email Address</label>
+                <input type="email" class="form-control" id="signupEmail" required>
+              </div>
+              <div class="row g-3 mb-2">
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-uppercase">Password</label>
+                  <input type="password" class="form-control" id="signupPassword" required minlength="8">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label small fw-bold text-uppercase">Confirm Password</label>
+                  <input type="password" class="form-control" id="signupConfirmPassword" required>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="d-flex justify-content-between align-items-center small">
+                  <span class="text-muted" style="font-size: 0.75rem;">Password Strength:</span>
+                  <span id="passwordStrengthText" class="fw-bold" style="font-size: 0.75rem;">None</span>
+                </div>
+                <div class="password-strength-bar"><div class="password-strength-progress" id="passwordStrengthBar"></div></div>
+              </div>
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="signupTerms" required checked>
+                <label class="form-check-label small text-muted">I agree to Terms & Conditions.</label>
+              </div>
+              <button type="submit" class="btn btn-deal w-100 py-3 fw-bold">Create Account</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- GLOBAL MODALS & FOOTER -->
+    <!-- ============================================== -->
+    <footer class="premium-footer" data-bs-theme="dark">
+      <div class="container">
+        <div class="footer-main-grid mb-4">
+          <div class="footer-col-brand">
+            <a class="navbar-brand text-white mb-3 d-inline-flex" href="?view=home">
+              <i class="bi bi-lightning-charge-fill text-warning"></i>
+              <span class="text-white">SNAP</span><span class="logo-badge">DEALZ</span>
+            </a>
+            <p class="footer-desc mb-3">SnapDealz is your curated destination for verified high-octane deals and direct-to-consumer savings on top brands.</p>
+          </div>
+          <div class="footer-col-links">
+            <h5>Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="?view=home">Home</a></li>
+              <li><a href="?view=shop">Shop Deals</a></li>
+              <li><a href="?view=cart">My Cart</a></li>
+              <li><a href="admin.html">Admin Panel</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-contact">
+            <h5>Customer Support</h5>
+            <ul class="footer-links">
+              <li class="footer-contact-item"><i class="bi bi-telephone-fill"></i> 1-800-SNAP-DEAL</li>
+              <li class="footer-contact-item"><i class="bi bi-envelope-fill"></i> support@snapdealz.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="small">&copy; 2026 SnapDealz Inc. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Global Search Modal -->
+    <div class="modal fade search-modal-backdrop" id="globalSearchModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold"><i class="bi bi-search text-warning me-2"></i> Search Deal Store</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body p-4">
+            <input type="text" id="globalSearchInput" class="form-control form-control-lg bg-light border-0" placeholder="Search shoes, bags, electronics...">
+            <div id="globalSearchResults" class="mt-3" style="max-height: 350px; overflow-y: auto;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty Cart Modal -->
+    <div class="modal fade" id="emptyCartModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 text-center p-4 shadow-lg" style="border-radius: 20px;">
+          <h4 class="fw-bold mb-2">Empty Your Cart?</h4>
+          <div class="d-flex gap-2 justify-content-center mt-4">
+            <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger rounded-pill px-4" id="confirmEmptyCartBtn">Yes, Empty Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold"><i class="bi bi-lock-fill text-warning me-2"></i> Secure Checkout</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body p-4">
+            <form id="checkoutOrderForm" novalidate>
+              <div class="row g-3 mb-4">
+                <div class="col-md-6"><input type="text" class="form-control" id="checkoutFullName" required placeholder="Full Name"></div>
+                <div class="col-md-6"><input type="email" class="form-control" id="checkoutEmail" required placeholder="Email Address"></div>
+                <div class="col-md-6"><input type="tel" class="form-control" id="checkoutPhone" required placeholder="Phone Number"></div>
+                <div class="col-md-6"><input type="text" class="form-control" id="checkoutCity" required placeholder="City"></div>
+                <div class="col-12"><input type="text" class="form-control" id="checkoutAddress" required placeholder="Street Address"></div>
+              </div>
+              <h6 class="fw-bold small text-muted mb-3">Select Payment Method</h6>
+              <div class="checkout-payment-methods">
+                <label class="payment-method-card"><input type="radio" name="paymentType" value="cod" checked> Cash On Delivery (COD)</label>
+                <label class="payment-method-card"><input type="radio" name="paymentType" value="easypaisa"> EasyPaisa</label>
+                <label class="payment-method-card"><input type="radio" name="paymentType" value="jazzcash"> JazzCash</label>
+              </div>
+              <div class="d-flex justify-content-end gap-2 mt-4">
+                <button type="button" class="btn btn-deal-outline" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-deal px-4" id="submitOrderBtn">Place Order</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 text-center p-4" style="border-radius: 20px;">
+          <h3 class="fw-bold mt-3">Order Confirmed!</h3>
+          <p class="text-muted small">Ref: <strong id="orderSuccessRefNumber">#SNP-98242</strong></p>
+          <button type="button" class="btn btn-deal w-100 py-2 mb-2" id="orderSuccessTrackBtn">Track Order Status</button>
+          <button type="button" class="btn btn-link text-danger w-100" id="orderSuccessCancelBtn">Cancel Order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 22px;">
+          <div class="modal-header border-0 pb-0 pt-4 px-4">
+            <h4 class="modal-title fw-bold">Reset Password</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body p-4">
+            <div id="forgotAlertBox" class="alert d-none mb-3"></div>
+            <form id="forgotPasswordForm" novalidate>
+              <input type="email" class="form-control mb-3" id="forgotEmail" placeholder="Email Address" required>
+              <input type="password" class="form-control mb-3" id="forgotNewPassword" placeholder="New Password" required minlength="8">
+              <input type="password" class="form-control mb-4" id="forgotConfirmPassword" placeholder="Confirm Password" required>
+              <button type="submit" class="btn btn-deal w-100" id="forgotSubmitBtn">Update Password</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./products.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
