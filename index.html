@@ -31,9 +31,6 @@
       <div class="container d-flex flex-wrap justify-content-center align-items-center gap-2">
         <span class="badge bg-warning text-dark fw-bold">⚡ FLASH SALE</span>
         <span>EXTRA 20% OFF WITH CODE <strong>BUNDLE20</strong> | FREE SHIPPING OVER $50</span>
-        <a href="#" class="text-warning text-decoration-none fw-bold ms-md-3 small d-inline-flex align-items-center" data-bs-toggle="modal" data-bs-target="#trackOrderModal">
-          <i class="bi bi-geo-alt-fill me-1"></i>Track Order
-        </a>
       </div>
     </div>
 
@@ -92,7 +89,7 @@
                     <h1 class="hero-title">STEP INTO POWER & SPEED</h1>
                     <p class="hero-desc">Apex Pulse Air Running Shoes with responsive cloud cushioning. Upgrade your athletic sprint with massive 50% discount savings.</p>
                     <div class="d-flex flex-wrap align-items-center gap-3">
-                      <a href="?view=product&id=1" class="btn btn-deal btn-lg"><i class="bi bi-bag-check-fill"></i> Shop Now • $64.99</a>
+                      <a href="?view=shop" class="btn btn-deal btn-lg"><i class="bi bi-bag-check-fill"></i> Shop Now</a>
                       <a href="?view=shop&category=mens-shoes" class="btn btn-deal-outline btn-lg">Explore Shoes</a>
                     </div>
                   </div>
@@ -172,25 +169,6 @@
           </div>
         </div>
       </section>
-
-      <section class="container my-5" id="newsletter">
-        <div class="newsletter-wrapper fade-in-up">
-          <div class="row align-items-center">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-              <span class="badge bg-warning text-dark fw-bold mb-2 px-3 py-1 rounded-pill">VIP DEALS CLUB</span>
-              <h2 class="deal-heading fs-2 mb-2">Get Secret Price Drops & 15% Off</h2>
-            </div>
-            <div class="col-lg-6">
-              <form class="newsletter-form">
-                <div class="newsletter-input-group">
-                  <input type="email" placeholder="Enter your email address..." required>
-                  <button type="submit" class="btn btn-deal px-4 py-2">Subscribe</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
 
     <!-- ============================================== -->
@@ -215,25 +193,11 @@
                 <label class="form-label small fw-bold text-uppercase text-muted">Keyword Search</label>
                 <input type="text" id="shopSearchInput" class="form-control" placeholder="Search products...">
               </div>
-              <div class="mb-4">
-                <label class="form-label small fw-bold text-uppercase text-muted">Categories</label>
-                <div id="categoryFiltersList"></div>
-              </div>
-              <div class="mb-4">
-                <label class="form-label small fw-bold text-uppercase text-muted mb-0">Max Price: <span id="priceRangeValue">$250</span></label>
-                <input type="range" class="form-range" id="priceRangeInput" min="20" max="250" step="5" value="250">
-              </div>
             </div>
           </aside>
           <section class="col-lg-9">
             <div class="bg-white p-3 rounded-4 border shadow-sm mb-4 d-flex justify-content-between align-items-center">
               <span class="text-muted small fw-semibold" id="shopResultsCount">Loading products...</span>
-              <select id="shopSortSelect" class="form-select form-select-sm border-secondary-subtle w-auto rounded-pill fw-semibold">
-                <option value="featured">Featured Deals</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="discount">Biggest % Discount</option>
-              </select>
             </div>
             <div class="row g-3 g-md-4" id="shopProductsGrid"></div>
           </section>
@@ -274,10 +238,6 @@
           <div class="text-center py-3">
             <h2 class="fw-bold text-dark mb-2">Your Cart is Currently Empty</h2>
             <a href="?view=shop" class="btn btn-deal btn-lg px-4 py-2 mt-3"><i class="bi bi-lightning-charge-fill me-1"></i> Browse Deals</a>
-          </div>
-          <div class="pt-4 border-top mt-5">
-            <h5 class="fw-bold mb-4">Trending Deals You Might Love</h5>
-            <div class="row g-3 g-md-4" id="emptyCartSuggestions"></div>
           </div>
         </div>
 
@@ -326,19 +286,18 @@
           <div class="col-lg-7 auth-form-side">
             <h3 class="deal-heading fs-3 mb-1">SIGN IN TO YOUR ACCOUNT</h3>
             <p class="text-muted small mb-4">Don't have an account yet? <a href="?view=signup" class="fw-bold text-dark text-decoration-underline">Create an account</a></p>
-            <div id="loginAlertBox" class="alert d-none mb-4"></div>
             <form id="loginForm" novalidate>
               <div class="mb-3">
                 <label class="form-label small fw-bold text-uppercase">Email Address</label>
-                <input type="email" class="form-control" id="loginEmail" required value="demo.vip@snapdealz.com">
+                <input type="email" class="form-control" id="loginEmail" required>
               </div>
               <div class="mb-3">
                 <div class="d-flex justify-content-between align-items-center">
                   <label class="form-label small fw-bold text-uppercase">Password</label>
-                  <a href="#" class="small text-muted text-decoration-underline" id="forgotPasswordLink">Forgot password?</a>
+                  <a href="#" class="small text-muted text-decoration-underline" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot password?</a>
                 </div>
                 <div class="input-group">
-                  <input type="password" class="form-control" id="loginPassword" required value="Password123!">
+                  <input type="password" class="form-control" id="loginPassword" required>
                   <button class="btn btn-outline-secondary" type="button" id="togglePasswordBtn"><i class="bi bi-eye"></i></button>
                 </div>
               </div>
@@ -350,7 +309,7 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- VIEW: SIGNUP PAGE -->
+    <!-- VIEW: SIGNUP PAGE (With Referral Code) -->
     <!-- ============================================== -->
     <div id="view-signup" class="app-view auth-page-wrapper" style="display:none;">
       <div class="auth-card-split shadow-lg">
@@ -363,6 +322,7 @@
             <h3 class="deal-heading fs-3 mb-1">CREATE YOUR VIP ACCOUNT</h3>
             <p class="text-muted small mb-4">Already a member? <a href="?view=login" class="fw-bold text-dark text-decoration-underline">Sign in here</a></p>
             <div id="signupAlertBox" class="alert d-none mb-4"></div>
+            
             <form id="signupForm" novalidate>
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
@@ -374,11 +334,23 @@
                   <input type="tel" class="form-control" id="signupPhone" required>
                 </div>
               </div>
+              
               <div class="mb-3">
                 <label class="form-label small fw-bold text-uppercase">Email Address</label>
                 <input type="email" class="form-control" id="signupEmail" required>
               </div>
-              <div class="row g-3 mb-2">
+
+              <!-- ⭐ NEW REFERRAL CODE FIELD ⭐ -->
+              <div class="mb-3">
+                <label for="signupReferral" class="form-label small fw-bold text-uppercase text-muted">Referral Code (Optional)</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light border-end-0"><i class="bi bi-gift text-muted"></i></span>
+                  <input type="text" class="form-control border-start-0 text-uppercase" id="signupReferral" placeholder="e.g. SNAP-ALI-1234">
+                </div>
+                <div class="form-text small">Enter your friend's code to reward them!</div>
+              </div>
+
+              <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <label class="form-label small fw-bold text-uppercase">Password</label>
                   <input type="password" class="form-control" id="signupPassword" required minlength="8">
@@ -388,13 +360,7 @@
                   <input type="password" class="form-control" id="signupConfirmPassword" required>
                 </div>
               </div>
-              <div class="mb-4">
-                <div class="d-flex justify-content-between align-items-center small">
-                  <span class="text-muted" style="font-size: 0.75rem;">Password Strength:</span>
-                  <span id="passwordStrengthText" class="fw-bold" style="font-size: 0.75rem;">None</span>
-                </div>
-                <div class="password-strength-bar"><div class="password-strength-progress" id="passwordStrengthBar"></div></div>
-              </div>
+
               <div class="form-check mb-4">
                 <input class="form-check-input" type="checkbox" id="signupTerms" required checked>
                 <label class="form-check-label small text-muted">I agree to Terms & Conditions.</label>
@@ -405,7 +371,6 @@
         </div>
       </div>
     </div>
-
 
     <!-- ============================================== -->
     <!-- GLOBAL MODALS & FOOTER -->
@@ -427,6 +392,7 @@
               <li><a href="?view=shop">Shop Deals</a></li>
               <li><a href="?view=cart">My Cart</a></li>
               <li><a href="admin.html">Admin Panel</a></li>
+              <li><a href="seller.html">Seller Portal</a></li>
             </ul>
           </div>
           <div class="footer-col-contact">
@@ -511,8 +477,7 @@
         <div class="modal-content border-0 text-center p-4" style="border-radius: 20px;">
           <h3 class="fw-bold mt-3">Order Confirmed!</h3>
           <p class="text-muted small">Ref: <strong id="orderSuccessRefNumber">#SNP-98242</strong></p>
-          <button type="button" class="btn btn-deal w-100 py-2 mb-2" id="orderSuccessTrackBtn">Track Order Status</button>
-          <button type="button" class="btn btn-link text-danger w-100" id="orderSuccessCancelBtn">Cancel Order</button>
+          <button type="button" class="btn btn-deal w-100 py-2 mb-2" data-bs-dismiss="modal">Back to Store</button>
         </div>
       </div>
     </div>
@@ -540,6 +505,7 @@
 
     <button type="button" id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./products.js"></script>
     <script src="./script.js"></script>
